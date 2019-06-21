@@ -25,7 +25,7 @@ git commit -m 'deploy'
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
 
 # 如果发布到 https://<USERNAME>.github.io/<REPO>
-git push -f https://github.com/HowAboutRyze/take-sth-down.git master:gh-pages
+git push -f https://github.com/howaboutryze/take-sth-down.git master:gh-pages
 
 # 返回到上一次的工作目录
 echo "回到刚才工作目录"
