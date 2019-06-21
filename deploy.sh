@@ -9,9 +9,6 @@ npm run docs:build
 #创建.nojekyll 防止Github Pages build错误
 touch .nojekyll
 
-# 进入生成的文件夹
-cd docs/.vuepress/dist
-
 git init
 git add -A
 git commit -m 'deploy'
