@@ -9,15 +9,33 @@ module.exports = {
                 link: '/'
             },
             {
-                text: '文章文章',
-                link: '/blog/FirstBlog.md'
+                text: '博客',
+                link: '/blog/'
             }
         ],
         repo: 'HowAboutRyze/take-sth-down',
-        sidebar: [
-            ['/', '首页'],
-            ['/blog/FirstBlog.md', '文章文章']
-        ]
-    }
+        sidebar: {
+            '/blog/': [
+                {
+                    title: '博客',
+                    collapsable: false,
+                    children: [
+                        '/blog/'
+                    ]
+                },
+                {
+                    title: 'Vue',
+                    collapsable: false,
+                    children: [
+                        '/blog/vue/',
+                        '/blog/vue/one.md'
+                    ]
+                }
+            ],
+        },
+        editLinks: true,
+        lastUpdated: '上次更新',
+        editLinkText: '在 GitHub 上编辑此页',
+    },
 
 }

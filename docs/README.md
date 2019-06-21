@@ -2,7 +2,7 @@
 home: true
 heroImage: /duan.gif
 actionText: 点我就行了 →
-actionLink: /blog/FirstBlog.md
+actionLink: /blog/
 features:
 - title: 占位
   details: 站站位
