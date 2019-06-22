@@ -1,4 +1,6 @@
 const utils = require('./utils');
+const blogMap = require('./sidebarMap/blogMap');
+const awesomeMap = require('./sidebarMap/awesomeMap');
 module.exports = {
     base: '/take-sth-down/',
     title: 'take-sth-down',
@@ -19,34 +21,26 @@ module.exports = {
             }
         ],
         repo: 'HowAboutRyze/take-sth-down',
-        // sidebar: utils.inferSiderbars(),   // 由于 markdown-it-include 插件用不了，就不用这个了
         sidebar: {
-            '/blog/': [
-                {
-                    title: '博客',
-                    collapsable: false,
-                    children: [
-                        '/blog/'
-                    ]
-                },
-                {
-                    title: 'Vue',
-                    collapsable: false,
-                    children: [
-                        '/blog/vue/home.md',
-                        '/blog/vue/one.md'
-                    ]
-                }
-            ],
-            '/awesome/': [
-                {
-                    title: '收藏夹',
-                    collapsable: false,
-                    children: [
-                        '/awesome/'
-                    ]
-                }
-            ]
+            '/blog/': utils.inferSiderbars(blogMap),
+            '/awesome/': utils.inferSiderbars(awesomeMap),
+            // '/blog/': [
+            //     {
+            //         title: '博客',
+            //         collapsable: false,
+            //         children: [
+            //             '/blog/'
+            //         ]
+            //     },
+            //     {
+            //         title: 'Vue',
+            //         collapsable: false,
+            //         children: [
+            //             '/blog/vue/home.md',
+            //             '/blog/vue/one.md'
+            //         ]
+            //     }
+            // ],
         },
         editLinks: true,
         lastUpdated: '上次更新',
