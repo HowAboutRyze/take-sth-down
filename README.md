@@ -8,6 +8,6 @@
 
 该项目基于 `vuepress` 和 `github pages`完成。
 
-展示地址：https://howaboutryze.github.io/take-sth-down/
+网站地址：https://howaboutryze.github.io/take-sth-down/
 
 如果你有好的想法或建议的话，可以提 issue 或者 pr 来告诉我，虽然我不一定看，哈哈。

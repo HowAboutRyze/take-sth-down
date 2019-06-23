@@ -1,6 +1,20 @@
 const utils = require('./utils');
 const blogMap = require('./sidebarMap/blogMap');
 const awesomeMap = require('./sidebarMap/awesomeMap');
+
+// 初始化博客侧边栏和导航栏下拉框
+const sidebarBlog = utils.inferSiderbars(blogMap);
+const navBlog = sidebarBlog.map(item => {
+    return { text: item.title, link: item.children[0]}
+});
+navBlog.shift();        // 去掉介绍页，防止全部定位到介绍页
+// 初始化收藏夹侧边栏和导航栏下拉框
+const sidebarAwesome = utils.inferSiderbars(awesomeMap);
+const navAwesome = sidebarAwesome.map(item => {
+    return { text: item.title, link: item.children[0]}
+});
+navAwesome.shift();
+
 module.exports = {
     base: '/take-sth-down/',
     title: 'take-sth-down',
@@ -13,17 +27,28 @@ module.exports = {
             },
             {
                 text: '博客',
-                link: '/blog/'
+                items: navBlog
+                // link: '/blog/' 
+                // items: [
+                //     {
+                //         text: '博客',
+                //         link: '/blog/'
+                //     },
+                //     {
+                //         text: 'vue'
+                //     }
+                // ]
             },
             {
                 text: '收藏夹',
-                link: '/awesome/'
+                // link: '/awesome/'
+                items: navAwesome
             }
         ],
         repo: 'HowAboutRyze/take-sth-down',
         sidebar: {
-            '/blog/': utils.inferSiderbars(blogMap),
-            '/awesome/': utils.inferSiderbars(awesomeMap),
+            '/blog/': sidebarBlog,
+            '/awesome/': sidebarAwesome,
             // '/blog/': [
             //     {
             //         title: '博客',
