@@ -4,7 +4,7 @@ const awesomeMap = require('./sidebarMap/awesomeMap');
 module.exports = {
     base: '/take-sth-down/',
     title: 'take-sth-down',
-    description: '欢迎来看我的这些东西',
+    description: '记录学习生活中的点点滴滴',
     themeConfig: {
         nav: [
             {
@@ -47,10 +47,11 @@ module.exports = {
         editLinkText: '在 GitHub 上编辑此页',
         docsDir: 'docs',
     },
-    // markdown: {
-    //     config: md => {
-    //         // use more markdown-it plugins!
-    //         md.use(require('markdown-it-include'))   // 需要 markdown-it-include 插件，但是暂时用不了，很惨
-    //     }
-    // }
+    markdown: {
+        lineNumbers: true,
+        //     config: md => {
+        //         // use more markdown-it plugins!
+        //         md.use(require('markdown-it-include'))   // 需要 markdown-it-include 插件，但是暂时用不了，很惨
+        //     }
+    }
 }
