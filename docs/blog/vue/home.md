@@ -1,4 +1,12 @@
+---
+tags:
+- js
+- vue
+---
+
 # Hello 我是 Vue
+
+<TagGroup/>
 
 Hey Guys!
 

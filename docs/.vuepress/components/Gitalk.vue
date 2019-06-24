@@ -8,7 +8,7 @@ import OAUTH from '../../../secret/oauth';
 export default {
     name: 'haha',
     mounted() {
-        console.log('当前路径',location.pathname)
+        console.log('当前路径',location.pathname,',site:',this.$site)
         var gitalk = new Gitalk({
             clientID: OAUTH.id,             // GitHub Application Client ID
             clientSecret: OAUTH.secret,     // GitHub Application Client Secret

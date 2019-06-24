@@ -5,13 +5,13 @@ const awesomeMap = require('./sidebarMap/awesomeMap');
 // 初始化博客侧边栏和导航栏下拉框
 const sidebarBlog = utils.inferSiderbars(blogMap);
 const navBlog = sidebarBlog.map(item => {
-    return { text: item.title, link: item.children[0]}
+    return { text: item.title, link: item.children[0] }
 });
 navBlog.shift();        // 去掉介绍页，防止全部定位到介绍页
 // 初始化收藏夹侧边栏和导航栏下拉框
 const sidebarAwesome = utils.inferSiderbars(awesomeMap);
 const navAwesome = sidebarAwesome.map(item => {
-    return { text: item.title, link: item.children[0]}
+    return { text: item.title, link: item.children[0] }
 });
 navAwesome.shift();
 
@@ -43,6 +43,10 @@ module.exports = {
                 text: '收藏夹',
                 // link: '/awesome/'
                 items: navAwesome
+            },
+            {
+                text: '关于我',
+                link: '/about-me/'
             }
         ],
         repo: 'HowAboutRyze/take-sth-down',
@@ -67,9 +71,9 @@ module.exports = {
             //     }
             // ],
         },
-        editLinks: true,
         lastUpdated: '上次更新',
-        editLinkText: '在 GitHub 上编辑此页',
+        // editLinks: true,
+        // editLinkText: '在 GitHub 上编辑此页',
         docsDir: 'docs',
     },
     markdown: {
