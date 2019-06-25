@@ -5,6 +5,16 @@
 </template>
 
 <script>
+/**
+ * 批量导入弹窗
+ * @Author  HowAboutRyze
+ * @example 调用示例：
+ * <ClientOnly>         // 因组件使用了 window，Nodejs 服务端渲染拿不到 window，需使用 <ClientOnly> 内部组件包裹
+ *      <ParticleBoom>
+ *          <components/>
+ *      </ParticleBoom>
+ * </ClientOnly>
+ */
 import html2canvas from "html2canvas";
 import { ExplodingParticle } from "../lib/animation";
 
@@ -83,22 +93,22 @@ export default {
             this.particleCanvas = document.createElement("canvas");
             this.particleCtx = this.particleCanvas.getContext("2d");
 
-            // Size our canvas
+            // 给 canvas 大小
             this.particleCanvas.width = window.innerWidth;
             this.particleCanvas.height = window.innerHeight;
 
-            // Position out canvas
+            // 给 canvas 位置
             this.particleCanvas.style.position = "absolute";
             this.particleCanvas.style.top = "0";
             this.particleCanvas.style.left = "0";
 
-            // Make sure it's on top of other elements
+            // 设定层级，高于其他元素
             this.particleCanvas.style.zIndex = "1001";
 
-            // Make sure other elements under it are clickable
+            // 确保 canvas 下面的元素能够点击
             this.particleCanvas.style.pointerEvents = "none";
 
-            // Add our canvas to the page
+            // 将 canvas 插入页面
             document.body.appendChild(this.particleCanvas);
         },
         resize() {
@@ -113,7 +123,7 @@ export default {
                 document.body.clientHeight;
         },
         update() {
-            // Clear out the old particles
+            // 清除之前的粒子
             if (this.particleCtx) {
                 this.particleCtx.clearRect(
                     0,
@@ -123,7 +133,7 @@ export default {
                 );
             }
 
-            // Draw all of our particles in their new location
+            // 在新的位置画出所有的粒子
             for (let i = 0; i < this.particles.length; i++) {
                 this.particles[i].draw(this.particleCtx);
 
@@ -138,7 +148,7 @@ export default {
                     }
                 }
             }
-            // Animate performantly
+            // 执行动画
             window.requestAnimationFrame(this.update);
         }
     }

@@ -3,6 +3,7 @@
         <span 
             v-for="tag in tags"
             :key="tag"
+            @click="$router.push({ path: '/tags/', query: { tag } })"
         >
             {{tag}}
         </span>
@@ -18,7 +19,7 @@ export default {
     }
 }
 </script>
-<style lang="stylus">
+<style lang="stylus" scoped>
 .tag-group {
     & > span {
         display: inline-block;
@@ -31,9 +32,15 @@ export default {
         font-size: 12px;
         vertical-align: top;
         color: #666;
-        background-color: #F1F5FC;
-        border: 1px solid #CCD9FC;
+        background-color: #ecf5ff;
+        border: 1px solid #b3d8ff;
         border-radius: 22px;
+        cursor: pointer;
+        &:hover {
+            color: #fff;
+            background-color: #409eff;
+            border: 1px solid #409eff;
+        }
     }
 }
 </style>

@@ -1,5 +1,5 @@
 const blogMap = [
-    { title: '博客', dirname: 'blog' },
+    { title: '博客', dirname: 'blog/intro' },
     { title: 'vue', dirname: 'blog/vue' }
 ]
 

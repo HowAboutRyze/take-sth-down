@@ -15,4 +15,4 @@ heroImage: /duan.gif
 footer: design & code by LiZhongWei | base on vuepress & github pages
 ---
 
-<HomeBtn/>
+<HomeBtn>进入网站 →</HomeBtn>

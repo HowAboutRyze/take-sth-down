@@ -1,4 +1,4 @@
-<h1 style="color:skyblue">关于我</h1>
+# 关于我
 
 ## 技术栈
 

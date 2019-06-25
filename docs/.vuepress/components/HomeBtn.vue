@@ -1,8 +1,12 @@
 <template>
     <div class="home-btn">
-        <ParticleBoom style="width:200px;height:50px;margin:0 auto;text-align:center;">
-            <a v-show="isShow" class="home-btn-link" @click="go">点我就行了 →</a>
-        </ParticleBoom>
+        <ClientOnly>
+            <ParticleBoom style="width:200px;height:50px;margin:0 auto;text-align:center;">
+                <a v-show="isShow" class="home-btn-link" @click="go">
+                    <slot/>
+                </a>
+            </ParticleBoom>
+        </ClientOnly>
     </div>
 </template>
 <script>
@@ -21,7 +25,7 @@ export default {
                 this.isShow = false;
             }, 200);
             this.timeout2 = setTimeout(() => {
-                this.$router.push('/blog/');
+                this.$router.push('/blog/intro/intro');
             }, 800);
         }
     },
