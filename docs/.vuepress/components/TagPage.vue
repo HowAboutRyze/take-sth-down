@@ -67,6 +67,14 @@ export default {
             } else {
                 this.info = this.$site.pages.filter(page => page.path !== '/tags/');
             }
+            this.info = this.info.sort((pre, next) => {
+                if(pre.lastUpdated === undefined) return 1;
+                if(next.lastUpdated === undefined) return -1;
+                return (
+                    new Date(next.lastUpdated).getTime() -
+                    new Date(pre.lastUpdated).getTime()
+                );
+            });
         },
     },
     components: {
