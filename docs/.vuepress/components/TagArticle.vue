@@ -3,12 +3,15 @@
         <div class="article-title">
             <router-link :to="tag.path">{{tag.title}}</router-link>
         </div>
-        <div class="article-abstract" v-if="tag.frontmatter.abstract">
+        <div 
+            class="article-abstract" 
+            v-if="tag.frontmatter.abstract"
+        >
             {{tag.frontmatter.abstract}}
         </div>
-        <div class="article-fulltext">
+        <!-- <div class="article-fulltext">
             <router-link :to="tag.path">查看全文</router-link>
-        </div>
+        </div> -->
         <div class="article-footer">
             <div class="footer-tags">
                 <span
@@ -19,7 +22,7 @@
                 </span>
             </div>
             <div class="footer-time">
-                {{tag.lastUpdated}}
+                {{ tag.lastUpdated | justGetDate }}
             </div>
         </div>
     </div>
@@ -33,6 +36,14 @@ export default {
             default: () => {}
         },
         tg: ''
+    },
+    filters: {
+        justGetDate(value) {
+            let _date = value.split(',')[0].split('/');
+            _date.unshift(_date[2]);
+            _date = _date.slice(0,-1).join('/');
+            return _date;
+        }
     }
 }
 </script>
@@ -48,15 +59,19 @@ export default {
     background-color: #fff;
     position: relative;
     .article-title {
+        margin-bottom: .6rem;
         font-size: 1.2rem;
         line-height: 2rem;
         font-weight: bold;
+    }
+    .article-abstract {
+        padding: 0 0 1.5rem 0;
+        color: #666;
     }
     .article-fulltext {
         display: flex;
         justify-content: flex-end;
         padding: .6rem 0;
-        border-bottom: 1px solid #ccc;
         & > a {
             display: inline-block;
             padding: .2rem .5rem;
@@ -75,6 +90,7 @@ export default {
         display: flex;
         padding: .6rem 0 0 0;
         font-size: .8rem;
+        border-top: 1px solid #ccc;
         .footer-tags {
             flex: 1;
             & > span {
@@ -90,9 +106,15 @@ export default {
                 border: 1px solid #b3d8ff;
                 border-radius: 1.1rem;
                 cursor: pointer;
+                &:hover {
+                    color: #fff;
+                    background-color: #409eff;
+                    border: 1px solid #409eff;
+                }
             }
         }
         .footer-time {
+            line-height: 1.3rem;
             color: #999;
         }
     }

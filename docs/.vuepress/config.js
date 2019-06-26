@@ -53,7 +53,7 @@ module.exports = {
                 link: '/about-me/'
             }
         ],
-        repo: 'HowAboutRyze/take-sth-down',
+        repo: 'HowAboutRyze',
         sidebar: {
             '/blog/': sidebarBlog,
             '/awesome/': sidebarAwesome,

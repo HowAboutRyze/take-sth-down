@@ -1,10 +1,12 @@
 <template>
     <div class="home-btn">
         <ClientOnly>
-            <ParticleBoom style="width:200px;height:50px;margin:0 auto;text-align:center;">
-                <a v-show="isShow" class="home-btn-link" @click="go">
-                    <slot/>
-                </a>
+            <ParticleBoom>
+                <div class="home-btn-box">
+                    <a v-show="isShow" class="home-btn-link" @click="go">
+                        <slot/>
+                    </a>
+                </div>
             </ParticleBoom>
         </ClientOnly>
     </div>
@@ -37,12 +39,20 @@ export default {
 </script>
 <style lang="stylus">
 .home-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding:30px 0;
-    .home-btn-link {
-        display: inline-block;
-        font-size: 20px;
+    .home-btn-box {
         width: 190px;
         height: 50px;
+    }
+    .home-btn-link {
+        display: inline-block;
+        width: 190px;
+        height: 50px;
+        text-align: center;
+        font-size: 20px;
         color: #fff;
         background: #409EFF;
         border-radius: 6px;

@@ -105,12 +105,13 @@ export default {
             background-color: #ecf5ff;
             border: 1px solid #b3d8ff;
             border-radius: 1rem;
+            transition: all .3s;
             cursor: pointer;
             &:hover, &.active {
                 color: #fff;
                 background-color: #409eff;
                 border: 1px solid #409eff;
-                transform: scale(1.1);
+                transform: translateY(-.2rem) scale(1.1);
             }
         }
     }
