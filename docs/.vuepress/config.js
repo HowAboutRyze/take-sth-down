@@ -84,5 +84,13 @@ module.exports = {
         //         // use more markdown-it plugins!
         //         md.use(require('markdown-it-include'))   // 需要 markdown-it-include 插件，但是暂时用不了，很惨
         //     }
-    }
+    },
+    plugins: [
+        [ 
+            '@vuepress/google-analytics',
+            {
+                'ga': 'UA-142996935-1'      // google-analytics
+            }
+        ]  
+    ] 
 }
