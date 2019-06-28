@@ -7,13 +7,11 @@ const sidebarBlog = utils.inferSiderbars(blogMap);
 const navBlog = sidebarBlog.map(item => {
     return { text: item.title, link: item.children[0] }
 });
-// navBlog.shift();        // 去掉介绍页，防止全部定位到介绍页
 // 初始化收藏夹侧边栏和导航栏下拉框
 const sidebarAwesome = utils.inferSiderbars(awesomeMap);
 const navAwesome = sidebarAwesome.map(item => {
     return { text: item.title, link: item.children[0] }
 });
-// navAwesome.shift();
 
 module.exports = {
     base: '/take-sth-down/',

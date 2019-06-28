@@ -14,6 +14,14 @@
  *          <components/>
  *      </ParticleBoom>
  * </ClientOnly>
+ * 
+ * 效果类似这种：  (∩^o^)⊃━☆    ﾟ.*･｡
+ * 
+ * 也可以说时灭霸响指特效：
+ * 
+ *      ( ﾟ_ﾟ)j      (☉ェ☉)
+ *              ↓↓
+ *      (#`Д´)y       .*･｡ﾟ*･ﾟ｡
  */
 import html2canvas from "html2canvas";
 import { ExplodingParticle } from "../lib/animation";

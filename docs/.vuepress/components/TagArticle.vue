@@ -39,10 +39,14 @@ export default {
     },
     filters: {
         justGetDate(value) {
-            let _date = value.split(',')[0].split('/');
-            _date.unshift(_date[2]);
-            _date = _date.slice(0,-1).join('/');
-            return _date;
+            if(value) {
+                let _date = value.split(',')[0].split('/');
+                _date.unshift(_date[2]);
+                _date = _date.slice(0,-1).join('/');
+                return _date;
+            } else {
+                return '暂无更新时间'
+            }
         }
     }
 }
@@ -58,11 +62,39 @@ export default {
     box-shadow: 0 0.25rem 1.2rem 0 hsla(0,0%,56.9%,.21);
     background-color: #fff;
     position: relative;
+    transition: box-shadow .6s ease-out;
+    transition-delay: .1s;
+    &:hover {
+        box-shadow: 0 0.25rem 1.2rem 0 hsla(0,0%,56.9%,.8);
+    }
     .article-title {
         margin-bottom: .6rem;
-        font-size: 1.2rem;
-        line-height: 2rem;
-        font-weight: bold;
+        & > a {
+            font-size: 1.5rem;
+            line-height: 2.2rem;
+            font-weight: bold;
+            position: relative;
+            text-decoration: none;
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%
+                height: 2px;
+                background-color: #409eff;
+                visibility: hidden;
+                transform: scaleX(0);
+                transition: .3s ease-in-out;
+            }
+            &:hover {
+                text-decoration: none;
+                &::after {
+                    visibility: visible;
+                    transform: scaleX(1);
+                }
+            }
+        }
     }
     .article-abstract {
         padding: 0 0 1.5rem 0;
