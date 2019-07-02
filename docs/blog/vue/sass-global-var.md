@@ -55,7 +55,7 @@ h2 {
 npm i sass-resources-loader -D
 ```
 
-然后在项目build文件夹里找到 `utils.js` ，定位到下边代码
+- 然后在项目build文件夹里找到 `utils.js` ，定位到下边代码
 
 ```js
 // https://vue-loader.vuejs.org/en/configurations/extract-css.html
@@ -70,7 +70,7 @@ return {
 }
 ```
 
-最后在 scss 项添加如下代码，为 scss 解析增加 sass-resources-loader，并写上全局路径
+- 最后在 scss 项添加如下代码，为 scss 解析增加 sass-resources-loader，并写上全局路径
 
 ```js
 return {
