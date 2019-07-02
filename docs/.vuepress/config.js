@@ -77,6 +77,12 @@ module.exports = {
         // editLinks: true,
         // editLinkText: '在 GitHub 上编辑此页',
         docsDir: 'docs',
+        serviceWorker: {
+            updatePopup: { 
+               message: "本站点更新内容啦！", 
+               buttonText: "那就更新" 
+            }
+        }
     },
     markdown: {
         lineNumbers: true,
