@@ -16,6 +16,7 @@
             <div class="footer-tags">
                 <span
                     v-for="item in tag.frontmatter.tags"
+                    :class="{ active: item === tg }"
                     @click="$emit('turnTo', item)"
                 >
                     {{item}}
@@ -138,7 +139,7 @@ export default {
                 border: 1px solid #b3d8ff;
                 border-radius: 1.1rem;
                 cursor: pointer;
-                &:hover {
+                &:hover, &.active {
                     color: #fff;
                     background-color: #409eff;
                     border: 1px solid #409eff;
