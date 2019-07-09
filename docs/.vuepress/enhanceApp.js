@@ -10,11 +10,20 @@ export default ({
         let copy = module.default;
         copy();
     })
-    import('./lib/titlechange').then(module => {
-        let titlechange = module.default;
-        titlechange();
-    })
+    // import('./lib/titlechange').then(module => {
+    //     let titlechange = module.default;
+    //     titlechange();
+    // })
     
     // vue的粒子背景组件
-    Vue.use(VueParticles)
+    Vue.use(VueParticles);
+
+    router.afterEach((to, from) => {
+        import('./lib/trySeo').then(module => {
+            let changemeta = module.default;
+            changemeta(Vue, siteData, to);
+        })
+        console.log('siteData', siteData, 'router', router.history.current.path, 'vue', Vue, 'to',to)
+
+    })
 }

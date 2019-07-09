@@ -401,7 +401,7 @@ export default router
 
 ![移动端](./img/mobilepc_mobile.png)
 
-## 6.去掉 url 中的 .html 和 #
+## 6.去掉 `url` 中的 `.html` 和 `#`
 
 别说了，将 `vue-router` 改为 `history` 模式即可。 :ghost:
 

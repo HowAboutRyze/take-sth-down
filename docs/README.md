@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /duan.gif
+heroImage: /favorite.png
 # actionText: 点我就行了 →
 # actionLink: /blog/
 # features:
