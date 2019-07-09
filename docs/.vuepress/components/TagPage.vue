@@ -16,10 +16,12 @@
         <div class="article-list">
             <TagArticle v-for="tag in info" :tag="tag" :tg="tg" @turnTo="change"/>
         </div>
+        <ParticlesBg/>
     </div>
 </template>
 <script>
 import TagArticle from './TagArticle';
+import ParticlesBg from './ParticlesBg';
 export default {
     name: 'TagPage',
     data() {
@@ -78,7 +80,8 @@ export default {
         },
     },
     components: {
-        TagArticle
+        TagArticle,
+        ParticlesBg
     },
     mounted() {
         //当路由?tag='xxx'时能自动跳转到对应内容

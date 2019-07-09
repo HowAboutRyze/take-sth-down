@@ -1,3 +1,4 @@
+import VueParticles from 'vue-particles'
 
 export default ({
     Vue, // VuePress 正在使用的 Vue 构造函数
@@ -13,4 +14,7 @@ export default ({
         let titlechange = module.default;
         titlechange();
     })
+    
+    // vue的粒子背景组件
+    Vue.use(VueParticles)
 }
