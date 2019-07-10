@@ -23,11 +23,17 @@ export default {
     }
 }
 </script>
-<style>
+<style lang="stylus">
 #gitalk-container {
+    margin-top: 2.5em;
+    padding: .8rem;
     box-shadow: 0 0.25rem 1.2rem 0 hsla(0,0%,56.9%,.21);
     border-radius: .5rem;
-    padding: .8rem;
+    .gt-container {
+        .gt-meta {
+            margin-top: 0;
+        }
+    }
 }
 .gt-container .gt-meta {
     /* 评论层级不应高于菜单栏层级 */
