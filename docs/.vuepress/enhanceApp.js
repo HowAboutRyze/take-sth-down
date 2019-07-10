@@ -23,7 +23,7 @@ export default ({
             let changemeta = module.default;
             changemeta(Vue, siteData, to);
         })
-        console.log('siteData', siteData, 'router', router.history.current.path, 'vue', Vue, 'to',to)
+        // console.log('siteData', siteData, 'router', router.history.current.path, 'vue', Vue, 'to',to)
 
     })
 }

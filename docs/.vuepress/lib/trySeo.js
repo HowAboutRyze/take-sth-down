@@ -17,7 +17,6 @@ export default (Vue, siteData, currentRouter) => {
     
     // 改title
     titlechange(document.title);
-    console.log('currentPageArr', currentPageArr)
 
     // 改<meta name="keywords" content="">
     if(document.getElementsByName('keywords').length) {
