@@ -35,7 +35,7 @@ sh 命令调用缺省 shell 并使用它的语法和标志。
 - 用 `webpack` 构建一个项目，使用 `HotModuleReplacementPlugin` 插件开启 `webpack-dev-server` ，在 `package.json` 文件中的 `scripts` 项增加 `"dev": "webpack-dev-server --open"`
 - 在根目录下创建一个文件 `dev.sh`，代码如下：
 
-```
+``` bash
 #!/usr/bin/env sh
 
 # 运行 webpack-dev-server
