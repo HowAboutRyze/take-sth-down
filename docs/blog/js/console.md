@@ -1,7 +1,7 @@
 ---
 tags:
 - js
-abstract: 本文介绍一些用老式 console 来 debug 的技巧
+abstract: 本文介绍5个用 console 来 debug 的技巧
 ---
 
 # console 的5个技巧
