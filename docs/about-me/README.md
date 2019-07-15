@@ -1,5 +1,7 @@
 # 关于我
 
+<MusicAllSelectedC/>
+
 ## 技术栈
 
 - Vue
