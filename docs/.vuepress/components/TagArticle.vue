@@ -19,7 +19,7 @@
                     :class="{ active: item === tg }"
                     @click="$emit('turnTo', item)"
                 >
-                    {{item}}
+                    {{ item }}
                 </span>
             </div>
             <div class="footer-time">
