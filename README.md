@@ -12,8 +12,12 @@
 
 如果你有好的想法或建议的话，可以提 issue 或者 pr 来告诉我，虽然我不一定看，哈哈。
 
-## 开启测试服务器 localhost:8080
+## 构建步骤
+
+``` bash
+# 开启测试服务器 localhost:8080
 npm run docs:dev
 
-## 打包压缩的文件
+# 打包压缩的文件
 npm run docs:build
+```
