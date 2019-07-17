@@ -17,7 +17,7 @@
 
 ## 联系方式
 
-- 邮箱：<span style="color:#58bc58">lizhongwei157@163.com</span>
+- 邮箱：<lizhongwei157@163.com>
 
 - GitHub：[HowAboutRyze](https://github.com/HowAboutRyze)
 
