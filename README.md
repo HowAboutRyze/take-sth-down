@@ -15,7 +15,7 @@
 ## 构建步骤
 
 ``` bash
-# 开启测试服务器 localhost:8080
+# 开启测试服务器 http://localhost:8080/take-sth-down/
 npm run docs:dev
 
 # 打包压缩的文件
