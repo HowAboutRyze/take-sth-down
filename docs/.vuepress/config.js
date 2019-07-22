@@ -104,6 +104,16 @@ module.exports = {
                     buttonText: '那就更新'
                 }
             }
-        ]
+        ],
+        ['demo-code', {
+            showText: '显示代码',
+            hideText: '隐藏代码',
+            demoCodeMark: 'demo-code',
+            onlineBtns: {
+                codepen: true,
+                jsfiddle: false,
+                codesandbox: false
+            }
+        }]
     ] 
 }

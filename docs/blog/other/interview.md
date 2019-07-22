@@ -119,6 +119,9 @@ shape.perimeter();
 summary {
     cursor: pointer;
 }
+summary:focus {
+    outline: none;
+}
 summary:after {
     content: "🙈";
     float: left;

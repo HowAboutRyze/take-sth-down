@@ -75,25 +75,24 @@ export default {
             line-height: 2.2rem;
             font-weight: bold;
             position: relative;
-            text-decoration: none;
+            &:hover {
+                text-decoration: none;
+            }
             &::after {
-                content: "";
+                content: '';
                 position: absolute;
                 bottom: 0;
                 left: 0;
-                width: 100%
+                right: 0;
                 height: 2px;
                 background-color: #409eff;
-                visibility: hidden;
                 transform: scaleX(0);
-                transition: .3s ease-in-out;
+                transition: transform 0.5s ease;
+                transform-origin: center right;
             }
-            &:hover {
-                text-decoration: none;
-                &::after {
-                    visibility: visible;
-                    transform: scaleX(1);
-                }
+            &:hover::after {
+                transform-origin: center left;
+                transform: scaleX(1);
             }
         }
     }
@@ -129,6 +128,8 @@ export default {
             & > span {
                 display: inline-block;
                 position: relative;
+                z-index: 1;
+                overflow: hidden;
                 height: 1.3rem;
                 margin-right: .5rem;
                 padding: 0 .7rem;
@@ -139,10 +140,27 @@ export default {
                 border: 1px solid #b3d8ff;
                 border-radius: 1.1rem;
                 cursor: pointer;
-                &:hover, &.active {
+                &:hover {
+                    animation: jelly 0.5s;
+                }
+                &.active {
                     color: #fff;
                     background-color: #409eff;
                     border: 1px solid #409eff;
+                }
+                &::after {
+                    content: '';
+                    z-index: -1;
+                    background-color: rgba(255, 255, 255, .8);
+                    position: absolute;
+                    top: -50%;
+                    bottom: -50%;
+                    width: 1.25em;
+                    transform: translate3d(-525%, 0, 0) rotate(35deg);
+                }
+                &:hover::after {
+                    transition: transform 0.45s ease-in-out;
+                    transform: translate3d(200%, 0, 0) rotate(35deg);
                 }
             }
         }
@@ -151,5 +169,20 @@ export default {
             color: #999;
         }
     }
+}
+@keyframes jelly {
+  0%,
+  100% {
+    transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(0.9, 1.1);
+  }
+  50% {
+    transform: scale(1.1, 0.9);
+  }
+  75% {
+    transform: scale(0.95, 1.05);
+  }
 }
 </style>

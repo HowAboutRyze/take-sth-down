@@ -9,6 +9,7 @@
   },
   "keywords": [],
   "author": "LiZhongWei",
+  "homepage": "https://howaboutryze.github.io/take-sth-down/",
   "license": "ISC",
   "devDependencies": {
     "@vuepress/plugin-google-analytics": "^1.0.0-rc.1",
@@ -16,6 +17,7 @@
     "gitalk": "^1.5.0",
     "html2canvas": "^1.0.0-rc.3",
     "vue-particles": "^1.0.9",
-    "vuepress": "^1.0.1"
+    "vuepress": "^1.0.1",
+    "vuepress-plugin-demo-code": "^0.3.5"
   }
 }
