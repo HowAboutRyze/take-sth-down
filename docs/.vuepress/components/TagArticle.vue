@@ -155,12 +155,13 @@ export default {
                     position: absolute;
                     top: -50%;
                     bottom: -50%;
+                    left: -2em;
                     width: 1.25em;
-                    transform: translate3d(-525%, 0, 0) rotate(35deg);
+                    transform: rotate(35deg);
                 }
                 &:hover::after {
-                    transition: transform 0.45s ease-in-out;
-                    transform: translate3d(200%, 0, 0) rotate(35deg);
+                    transition: left 0.45s ease-in-out;
+                    left: 150%;
                 }
             }
         }

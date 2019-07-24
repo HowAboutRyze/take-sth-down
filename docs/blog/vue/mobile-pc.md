@@ -14,6 +14,8 @@ abstract: 本文讲如何用 vue 实现一个项目中移动端和PC端的切换
 
 未防止以后找不到，所以写下本文记录下来自己对这篇博客思路的实践过程。
 
+戳这里可以查看该实践[实践demo](https://howaboutryze.github.io/mobile-pc)
+
 ## 1.准备工作
 
 - 依赖：vue-cli 2.x
