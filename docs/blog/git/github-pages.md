@@ -26,11 +26,11 @@ abstract: 本文讲如何使用 GitHub Pages 部署 demo 展示网页，以及 w
 
 在创建了仓库之后，可以开启该仓库的 `GitHub Pages` 了。来到项目仓库选择 `settings` 标签页，如下图
 
-![settings](./github_pages_settings.png)
+![settings](./img/github_pages_settings.png)
 
 找到 `GitHub Pages` 的 `source` 选择 `master branch` 分支
 
-![source](./github_pages_source.png)
+![source](./img/github_pages_source.png)
 
 更新页面之后就会看到如上图出现绿底文字，里面的链接即为仓库的 `GitHub Pages` 站点链接。
 

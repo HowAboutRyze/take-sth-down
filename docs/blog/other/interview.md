@@ -65,7 +65,8 @@ new new Foo().getName();
     <p><b>
         结果：
     </b></p>
-    <pre><code>
+    
+``` js
 function Foo(){                                                    //构造函数
     getName = function(){alert(1+'1');};
     return this;
@@ -82,7 +83,8 @@ getName();                                                         // 11，全�
 new Foo.getName();                                                 // object，在这行执行代码中，'.'的优先级比'new'高，所以先执行Foo.getName()，弹出object，无返回值，new失效
 new Foo().getName();                                               // false，有了()后，new Foo()就是调用构造函数了，比'.'优先级高，所以调用的是原型方法，结果应为 false
 new new Foo().getName();                                           // false，先执行中间的new Foo()调用构造函数，然后执行 ' . ' 后的方法，即原型方法，然后再执行前面已经没有意义的new
-    </code></pre>
+```
+
 </details>
 
 ### 3.下面代码输出什么
