@@ -114,4 +114,72 @@ function getStatusDesciption(statu) {
 }
 ```
 
+## 函数
+
+### requestAnimationFrame：window动画
+
+``` js
+window.requestAnimationFrame = window.requestAnimationFrame ||
+    window.webkitRequestAnimationFrame ||
+    window.mozRequestAnimationFrame ||
+    window.msRequestAnimationFrame ||
+    window.oRequestAnimationFrame ||
+    function (callback) {
+        //为了使setTimteout的尽可能的接近每秒60帧的效果
+        window.setTimeout(callback, 1000 / 60);
+    };
+    
+window.cancelAnimationFrame = window.cancelAnimationFrame ||
+    Window.webkitCancelAnimationFrame ||
+    window.mozCancelAnimationFrame ||
+    window.msCancelAnimationFrame ||
+    window.oCancelAnimationFrame ||
+    function (id) {
+        //为了使setTimteout的尽可能的接近每秒60帧的效果
+        window.clearTimeout(id);
+    }
+```
+
+### random：返回一个lower - upper之间的随机数
+
+``` js
+function random(lower, upper){
+    lower = +lower || 0
+    upper = +upper || 0
+    return Math.random() * (upper - lower) + lower;
+}
+```
+
+### toFullScreen：全屏、exitFullscreen：退出全屏
+
+``` js
+function toFullScreen(){
+    let elem = document.body;
+    elem.webkitRequestFullScreen
+    ? elem.webkitRequestFullScreen()
+    : elem.mozRequestFullScreen
+    ? elem.mozRequestFullScreen()
+    : elem.msRequestFullscreen
+    ? elem.msRequestFullscreen()
+    : elem.requestFullScreen
+    ? elem.requestFullScreen()
+    : alert("浏览器不支持全屏");
+}
+
+function exitFullscreen(){
+    let elem = parent.document;
+    elem.webkitCancelFullScreen
+    ? elem.webkitCancelFullScreen()
+    : elem.mozCancelFullScreen
+    ? elem.mozCancelFullScreen()
+    : elem.cancelFullScreen
+    ? elem.cancelFullScreen()
+    : elem.msExitFullscreen
+    ? elem.msExitFullscreen()
+    : elem.exitFullscreen
+    ? elem.exitFullscreen()
+    : alert("切换失败,可尝试Esc退出");
+}
+```
+
 <Gitalk/>
