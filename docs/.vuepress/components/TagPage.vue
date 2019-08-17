@@ -14,7 +14,7 @@
             >{{item.tag}}({{item.number}})</span>
         </div>
         <div class="article-list">
-            <TagArticle v-for="tag in info" :tag="tag" :tg="tg" @turnTo="change"/>
+            <TagArticle v-for="tag in showInfo" :tag="tag" :tg="tg" @turnTo="change"/>
         </div>
         <ParticlesBg/>
     </div>
@@ -22,11 +22,14 @@
 <script>
 import TagArticle from './TagArticle';
 import ParticlesBg from './ParticlesBg';
+import { throttle } from '../lib/utils';
 export default {
     name: 'TagPage',
     data() {
         return {
             info: [],
+            page: 1,
+            pageSize: 10,
             tg: ''
         };
     },
@@ -53,6 +56,9 @@ export default {
         },
         total() {
             return this.$site.pages.filter(page => page.frontmatter.tags).length;
+        },
+        showInfo() {
+            return this.info.slice(0, this.pageSize * this.page) || [];
         }
     },
     methods: {
@@ -78,6 +84,16 @@ export default {
                 );
             });
         },
+        scrollListener: throttle(function() {
+            const scrollTarget = document.querySelector('html');
+            const SCROLL_CONDITION = scrollTarget.scrollHeight - scrollTarget.scrollTop - 200 <= scrollTarget.clientHeight;
+            if(SCROLL_CONDITION) {
+                this.loadMore();
+            }
+        }, 500, {leading: false}),
+        loadMore() {
+            this.page = this.page + 1;
+        }
     },
     components: {
         TagArticle,
@@ -87,6 +103,13 @@ export default {
         //当路由?tag='xxx'时能自动跳转到对应内容
         let tag = this.$route.query.tag;
         this.change(tag);
+        
+        const self = this;
+        document && document.addEventListener('scroll', self.scrollListener);
+    },
+    beforeDestroy() {
+        const self = this;
+        document && document.removeEventListener('scroll', self.scrollListener);
     }
 };
 </script>
