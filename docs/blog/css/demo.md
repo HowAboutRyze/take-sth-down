@@ -1067,8 +1067,108 @@ abstract: 集中展示一些自己写的和别人的优秀CSS案例。
 </style>
 :::
 
+## css3 实现点点点 loading 动画
 
+`animation` 的 `animation-timing-function` 属性除了常用的 三次贝塞尔曲线 外还有 `step()` 函数，该函数指定关键帧之间的跳跃，其 `step-start` 值是跳过 `0%` 进行阶跃，实现三个点逐个出现的动画。
 
+### box-shadow 实现
 
+参考：[再说CSS3 animation实现点点点loading动画](https://www.zhangxinxu.com/wordpress/2014/12/css3-animation-dotting-loading/)
+
+::: demo-code
+<template>
+    <div style="background:#23b7e5;">
+        加载中<span class="dotting"></span>
+    </div>
+</template>
+<style>
+.dotting {
+    display: inline-block; min-width: 2px; min-height: 2px;
+    box-shadow: 2px 0 currentColor, 6px 0 currentColor, 10px 0 currentColor; /* for IE9+, ..., 3个点 */
+    animation: dot 4s infinite step-start both; /* for IE10+, ... */
+    *zoom: expression(this.innerHTML = '...'); /*  for IE7. 若无需兼容IE7, 此行删除 */
+}
+.dotting:before { content: '...'; } /* for IE8. 若无需兼容IE8, 此行以及下一行删除*/
+.dotting::before { content: ''; } /* for IE9+ 覆盖 IE8 */
+:root .dotting { margin-right: 8px; } /* for IE9+,FF,CH,OP,SF 占据空间*/
+@keyframes dot {
+    25% { box-shadow: none; }                                  /* 0个点 */
+    50% { box-shadow: 2px 0 currentColor; }                    /* 1个点 */
+    75% { box-shadow: 2px 0 currentColor, 6px 0 currentColor;  /* 2个点 */ }
+}
+</style>
+:::
+
+### margin 实现
+
+参考：[小tip: CSS3 animation渐进实现点点点等待提示效果](https://www.zhangxinxu.com/wordpress/2013/06/css3-animation-%E7%82%B9%E7%82%B9%E7%82%B9%E7%AD%89%E5%BE%85%E6%8F%90%E7%A4%BA%E6%95%88%E6%9E%9C/)
+
+::: demo-code
+<template>
+    <div style="background:#23b7e5;">
+        加载中<span class="ani_dot">...</span>
+    </div>
+</template>
+<style>
+.ani_dot {
+    font-family: simsun;    
+}
+:root .ani_dot { /* 这里使用Hack是因为IE6~IE8浏览器下， vertical-align解析不规范，值为bottom或其他会改变按钮的实际高度*/
+    display: inline-block;
+    width: 1.5em;
+    vertical-align: bottom;
+    overflow: hidden;
+}
+@-webkit-keyframes dot2 {
+    0% { width: 0; margin-right: 1.5em; }
+    33% { width: .5em; margin-right: 1em; }
+    66% { width: 1em; margin-right: .5em; }
+    100% { width: 1.5em; margin-right: 0;}
+}
+.ani_dot {
+    -webkit-animation: dot2 3s infinite step-start;
+}
+@keyframes dot2 {
+    0% { width: 0; margin-right: 1.5em; }
+    33% { width: .5em; margin-right: 1em; }
+    66% { width: 1em; margin-right: .5em; }
+    100% { width: 1.5em; margin-right: 0;}
+}
+.ani_dot {
+    animation: dot2 3s infinite step-start;
+}
+</style>
+:::
+
+### ch 加等宽字体实现
+
+参考：[等宽字体在web布局中应用以及CSS3 ch单位嘿嘿](https://www.zhangxinxu.com/wordpress/2016/07/monospaced-font-css3-ch-unit/)
+
+::: demo-code
+<template>
+    <div style="background:#23b7e5;">
+        加载中<dot>...</dot>
+    </div>
+</template>
+<style>
+@supports (display:none) {
+    dot {
+        display: inline-block;
+        width: 3ch;
+        text-align: left;
+        text-indent: -1ch;
+        vertical-align: bottom; 
+        overflow: hidden;
+        animation: dot3 3s infinite step-start both;
+        /* 等宽字体很重要 */
+        font-family: Consolas, Monaco, monospace;
+    }
+}
+@keyframes dot3 {
+    33% { text-indent: 0; }
+    66% { text-indent: -2ch; }
+}
+</style>
+:::
 
 <Gitalk/>
