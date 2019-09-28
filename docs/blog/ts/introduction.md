@@ -157,27 +157,17 @@ let tom: Person = {
 
 ### 数组类型
 
-最简单的方法是使用「类型 + 方括号」来表示数组：
-
 ``` ts
+// 最简单的方法是使用「类型 + 方括号」来表示数组：
 let fibonacci: number[] = [1, 1, 2, 3, 5];
-```
 
-数组的项中不允许出现其他的类型：
-
-``` ts
+// 数组的项中不允许出现其他的类型：
 let fibonacci: number[] = [1, '1', 2, 3, 5];
-```
 
-也可以使用数组泛型（Array Generic） `Array<elemType>` 来表示数组：
-
-``` ts
+// 也可以使用数组泛型（Array Generic） `Array<elemType>` 来表示数组：
 let fibonacci: Array<number> = [1, 1, 2, 3, 5];
-```
 
-一个比较常见的做法是，用 `any` 表示数组中允许出现任意类型
-
-``` ts
+// 一个比较常见的做法是，用 `any` 表示数组中允许出现任意类型
 let list: any[] = ['xcatliu', 25, { website: 'http://xcatliu.com' }];
 ```
 
@@ -190,6 +180,118 @@ function sum() {
     let args: IArguments = arguments;
 }
 ```
+
+### 函数类型
+
+在 JavaScript 中，有两种常见的定义函数的方式——函数声明（Function Declaration）和函数表达式（Function Expression）。
+
+一个函数有输入和输出，要在 TypeScript 中对其进行约束，需要把输入和输出都考虑到。
+
+``` ts
+// 函数声明
+function sum(x: number, y: number): number {
+    return x + y;
+}
+
+// 函数表达式
+// 注意不要混淆了 TypeScript 中的 => 和 ES6 中的 =>。
+// 在 TypeScript 的类型定义中，=> 用来表示函数的定义，左边是输入类型，需要用括号括起来，右边是输出类型
+let mySum: (x: number, y: number) => number = function (x: number, y: number): number {
+    return x + y;
+};
+
+// 用接口定义函数的形状，可添加参数默认值，可选参数用 ? 表示
+interface SearchFunc {
+    (source: string, key: string = 'Tom', subString?: string): boolean;
+}
+
+let mySearch: SearchFunc;
+mySearch = function(source: string, key: string = 'Tom', subString?: string) {
+    return source.search(subString) !== -1;
+}
+
+// 剩余参数用数组的类型来定义
+function push(array: any[], ...items: any[]) {
+    items.forEach(function(item) {
+        array.push(item);
+    });
+}
+```
+
+::: warning
+注意：
+    - 输入多余的（或者少于要求的）参数，是不被允许的。
+    - 可选参数后面不允许再出现必需参数了。
+:::
+
+### 类型断言
+
+语法：`<类型>值` 或 `值 as 类型`。
+
+> 在 tsx 语法（React 的 jsx 语法的 ts 版）中必须用后一种。
+
+``` ts
+// 将一个联合类型的变量指定为一个更加具体的类型
+function getLength(something: string | number): number {
+    if ((<string>something).length) {  // number 类型无 .length 属性，所以需要断言 something 为 string 属性，否则会报错
+        return (<string>something).length;
+    } else {
+        return something.toString().length;
+    }
+}
+```
+
+::: warning
+注意： 类型断言不是类型转换，断言成一个联合类型中不存在的类型是不允许的。
+:::
+
+## 声明文件
+
+当使用第三方库时，我们需要引用它的声明文件，才能获得对应的代码补全、接口提示等功能。
+
+### 新语法索引
+
+- `declare var` 声明全局变量
+- `declare function` 声明全局方法
+- `declare class` 声明全局类
+- `declare enum` 声明全局枚举类型
+- `declare namespace` 声明（含有子属性的）全局对象
+- `interface` 和 `type` 声明全局类型
+- `export` 导出变量
+- `export namespace` 导出（含有子属性的）对象
+- `export default ES6` 默认导出
+- `export = commonjs` 导出模块
+- `export as namespace` UMD 库声明全局变量
+- `declare global` 扩展全局变量
+- `declare module` 扩展模块
+- `/// <reference />` 三斜线指令
+
+### 什么是声明文件
+
+通常我们会把声明语句放到一个单独的文件（jQuery.d.ts）中，这就是声明文件
+
+> 声明文件必需以 .d.ts 为后缀。
+
+> 一般来说，ts 会解析项目中所有的 *.ts 文件，当然也包含以 .d.ts 结尾的文件。所以当我们将 jQuery.d.ts 放到项目中时，其他所有 *.ts 文件就都可以获得 jQuery 的类型定义了。
+
+```
+目录
+/path/to/project
+├── src
+|  ├── index.ts
+|  └── jQuery.d.ts
+└── tsconfig.json
+```
+
+``` ts
+// src/jQuery.d.ts
+declare var jQuery: (selector: string) => any;
+
+// src/index.ts
+jQuery('#foo');
+```
+
+> 假如仍然无法解析，那么可以检查下 tsconfig.json 中的 files、include 和 exclude 配置，确保其包含了 jQuery.d.ts 文件。
 
 
 
