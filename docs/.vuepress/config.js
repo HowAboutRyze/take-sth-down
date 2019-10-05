@@ -105,15 +105,25 @@ module.exports = {
                 }
             }
         ],
-        ['demo-code', {
-            showText: '显示代码',
-            hideText: '隐藏代码',
-            demoCodeMark: 'demo-code',
-            onlineBtns: {
-                codepen: true,
-                jsfiddle: false,
-                codesandbox: false
+        [
+            'demo-code',
+            {
+                showText: '显示代码',
+                hideText: '隐藏代码',
+                demoCodeMark: 'demo-code',
+                onlineBtns: {
+                    codepen: true,
+                    jsfiddle: false,
+                    codesandbox: false
+                }
             }
-        }]
+        ],
+        [
+            require('./plugins/baidu-analytics'),
+            {
+                hm: '5f6af0a56893d05dabfd315d9e5336d6',
+                // ignore_hash: true,
+            }
+        ]
     ] 
 }

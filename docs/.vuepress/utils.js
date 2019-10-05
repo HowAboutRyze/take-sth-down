@@ -12,7 +12,7 @@ exports.inferSiderbars = sidebarMap => {
                     item.endsWith('.md') && fs.statSync(path.join(dirpath, item)).isFile()
             )
             .sort((prev, next) => (next.includes('README.md') ? 1 : 0))
-            .map(item => '/' + dirname + '/' + item.replace(/(README)?(.md)$/, ''))    // 凭借成 '/blog/vue/one' 的字符串
+            .map(item => '/' + dirname + '/' + item.replace(/(README)?(.md)$/, ''))    // 拼接成 '/blog/vue/one' 的字符串
 
         sidebar.push({
             title,
