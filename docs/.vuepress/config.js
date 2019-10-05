@@ -122,7 +122,7 @@ module.exports = {
             require('./plugins/baidu-analytics'),
             {
                 hm: '5f6af0a56893d05dabfd315d9e5336d6',
-                // ignore_hash: true,
+                ignore_hash: true,
             }
         ]
     ] 
