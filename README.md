@@ -21,3 +21,13 @@ npm run docs:dev
 # 打包压缩的文件
 npm run docs:build
 ```
+
+## 本地开发
+
+### 新增博客类别文件夹
+
+定位到 /docs/.vuepress/sidbarMap/blogMap.js
+
+### 新增博客文章
+
+在 /docs/blog/ 路径下的对应类别文件夹中添加 md 文件，重新启动本地服务器即可预览

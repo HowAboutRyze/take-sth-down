@@ -2,6 +2,7 @@ const blogMap = [
     { title: '博客', dirname: 'blog/intro' },
     { title: 'JavaScript', dirname: 'blog/js' },
     { title: 'vue', dirname: 'blog/vue' },
+    { title: 'react', dirname: 'blog/react' },
     { title: 'css', dirname: 'blog/css' },
     { title: 'git', dirname: 'blog/git' },
     { title: 'http', dirname: 'blog/http' },
