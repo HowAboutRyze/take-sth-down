@@ -20,6 +20,9 @@ npm run docs:dev
 
 # 打包压缩的文件
 npm run docs:build
+
+# 发布到 gh-pages 上
+npm run deploy
 ```
 
 ## 本地开发
