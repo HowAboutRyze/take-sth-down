@@ -3,6 +3,9 @@
  *      容我插会儿腰     <(￣︶￣)>
  */
 export default (title) => {
+    if (typeof window === 'undefined') {
+        return;
+    }
     // let documentTitle = document.title;
     document.addEventListener("visibilitychange", () => {
         document.title = "hidden" === document.visibilityState ? "快回来看我！(╯°Д°)╯︵ ┻━┻" : title

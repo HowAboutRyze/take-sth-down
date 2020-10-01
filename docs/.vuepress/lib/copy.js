@@ -2,6 +2,9 @@
  * 在复制时加上版权信息      Σ>―(〃°ω°〃)♡→
  */
 export default () => {
+    if (typeof window === 'undefined') {
+        return;
+    }
     function addCopy(e) {
         let copyTxt = ""
         e.preventDefault(); // 取消默认的复制事件

@@ -5,6 +5,9 @@
 import titlechange from './titlechange';
 
 export default (Vue, siteData, currentRouter) => {
+    if (typeof window === 'undefined') {
+        return;
+    }
     let currentPageArr, descriptionMeta, head, keywordsMeta, defaultKeywords;
 
     defaultKeywords = 'html,css,js,vue,react,webpack,git';
