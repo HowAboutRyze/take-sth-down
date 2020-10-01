@@ -18,7 +18,7 @@ module.exports = {
     title: 'take-sth-down',
     description: '记录学习生活中的点点滴滴',
     head: [
-        ['link', { rel: 'icon', href: '/favorite.png'}]
+        ['link', { rel: 'icon', href: '/favorite-icon.png'}]
     ],
     themeConfig: {
         nav: [
