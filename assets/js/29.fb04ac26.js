@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[29],{296:function(t,e,s){"use strict";s.r(e);var n=s(2),i=Object(n.a)({},function(){var t=this.$createElement,e=this._self._c||t;return e("ContentSlotsDistributor",{attrs:{"slot-key":this.$parent.slotKey}},[e("HomeBtn",[this._v("进入网站 →")]),this._v(" "),e("ParticlesBg")],1)},[],!1,null,null,null);e.default=i.exports}}]);
